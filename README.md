@@ -29,3 +29,8 @@ Contributions and feedback are welcome!
 5. Run `/eventmanage edit` to see a list of commands related to editing the currently-stored event.
 6. Run `/eventmanage start` (if you are finished editing the event details) to start the event, display a message on the bossbar, and allow joining the event.
 7. When the event ends, run `/eventmanage stop` to remove the bossbar message, and disable joining the event.
+
+## DOWNLOADS
+- [Modrinth](https://www.modrinth.com/plugin/eventmanager/versions)
+- [PaperMC Hangar](https://hangar.papermc.io/boyninja1555/eventmanager)
+- [GitHub (More Updated)](https://github.com/boyninja1555/EventManager-Minecraft-Plugin/releases)
