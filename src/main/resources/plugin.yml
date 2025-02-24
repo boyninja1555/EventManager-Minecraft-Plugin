@@ -1,0 +1,16 @@
+name: EventManager
+authors:
+  - boyninja15_
+version: 1.1-SNAPSHOT
+main: com.flappygrant.smp.plugins.eventmanager.Plugin
+api-version: 1.21
+commands:
+  eventmanage:
+    description: Manage large-scaled server-wide events
+    usage: /eventmanage <details|start|stop|edit>
+    permission: eventmanager.admin
+  joinevent:
+    description: Joins the currently-active event (if it exists)
+    usage: /joinevent
+    permission: eventmanager.player
+depend: [PlaceholderAPI]
