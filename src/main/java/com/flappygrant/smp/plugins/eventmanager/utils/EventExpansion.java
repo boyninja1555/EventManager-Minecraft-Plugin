@@ -5,6 +5,8 @@ import org.bukkit.entity.Player;
 import io.papermc.paper.math.Position;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 
+// WARNING: The expansion didn't work when last tested!
+// TODO: Make the PlaceholderAPI expansion actually work
 public class EventExpansion extends PlaceholderExpansion {
 
     @Override
@@ -36,10 +38,12 @@ public class EventExpansion extends PlaceholderExpansion {
     public String onPlaceholderRequest(Player player, String params) {
         Event current = Event.getCurrentEvent();
 
+        // Shows the text "NO EVENT" when the event is of
         if (current == null || !current.isRunning()) {
             return "NO EVENT";
         }
 
+        // Handles different placeholders
         if (params.equalsIgnoreCase("name")) {
             return current.getName();
         } else if (params.equalsIgnoreCase("pos")) {

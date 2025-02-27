@@ -15,6 +15,7 @@ public class Plugin extends JavaPlugin {
     public void onEnable() {
         currentEvent = new Event();
 
+        // Sets up the administrator commands
         Command_eventmanage commandEventmanageExecutor = new Command_eventmanage();
         commandEventmanageExecutor.setPluginInstance(this);
         commandEventmanageExecutor.setCurrentEvent(currentEvent);
@@ -22,13 +23,16 @@ public class Plugin extends JavaPlugin {
         getCommand("eventmanage").setExecutor(commandEventmanageExecutor);
         getCommand("eventmanage").setTabCompleter(commandEventmanageExecutor);
 
+        // Sets up player commands
         Command_joinevent commandJoineventExecutor = new Command_joinevent();
         commandJoineventExecutor.setCurrentEvent(currentEvent);
 
         getCommand("joinevent").setExecutor(commandJoineventExecutor);
 
+        // Allows new players too see the event bossbar
         Bukkit.getPluginManager().registerEvents(new BossBarJoinListener(currentEvent), this);
 
+        // Registers the PlaceholderAPI expansion
         if (new EventExpansion().register()) {
             getLogger().info("EventExpansion registered successfully!");
         } else {

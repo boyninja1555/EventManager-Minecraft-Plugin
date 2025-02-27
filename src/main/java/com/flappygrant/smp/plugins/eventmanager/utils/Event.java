@@ -38,6 +38,8 @@ public class Event {
         currentEvent = this;
         bossBar = Bukkit.createBossBar(name + BOSSBAR_MESSAGE_SUFFIX, BarColor.RED, BarStyle.SOLID);
 
+        // Adds the bossbar to all online players
+        // An event listener handles new players
         for (Player player : Bukkit.getOnlinePlayers()) {
             bossBar.addPlayer(player);
         }

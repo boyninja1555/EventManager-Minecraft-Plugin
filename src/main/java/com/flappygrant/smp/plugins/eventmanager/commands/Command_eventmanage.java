@@ -20,21 +20,26 @@ public class Command_eventmanage implements CommandExecutor, TabCompleter {
     private Event currentEvent;
     Responder responder = new Responder();
 
+    // Allows this class to access the plugin's information
     public void setPluginInstance(Plugin plugin) {
         this.pluginInstance = plugin;
     }
 
+    // Allows this class to access the current event
     public void setCurrentEvent(Event event) {
         this.currentEvent = event;
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        // Rules out senders who are not administrators
         if (!sender.hasPermission("eventmanager.admin")) {
             responder.respondWithError(sender, Responder.ErrorType.NoPermission);
             return false;
         }
 
+        // Do you really need help?
+        // You should've read the documentation!
         if (args.length == 0) {
             showHelp(sender);
             return true;
@@ -44,6 +49,8 @@ public class Command_eventmanage implements CommandExecutor, TabCompleter {
 
         switch (subCommand) {
             case "details":
+                // Sends the current event's details back to the sender
+                // An event doesn't need to be active!
                 responder.respond(sender, ChatColor.GOLD.toString() + ChatColor.BOLD.toString() + "> Event Details");
                 responder.respond(sender, "Name: " + ChatColor.YELLOW.toString() + ChatColor.UNDERLINE.toString()
                         + currentEvent.getName());
@@ -56,17 +63,20 @@ public class Command_eventmanage implements CommandExecutor, TabCompleter {
                         + currentEvent.getWorld());
                 break;
             case "start":
+                // Read the argument name, idiot
                 responder.respond(sender, "Starting the currently-configured event...");
                 currentEvent.start(pluginInstance);
                 responder.respond(sender, "Event successfully started!");
                 break;
             case "stop":
+                // Read the argument name, idiot
                 responder.respond(sender, "Stopping the current event...");
                 currentEvent.stop(pluginInstance);
                 responder.respond(sender, "Event successfully stopped!");
                 break;
             case "edit":
                 if (args.length == 1) {
+                    // Sends the event editor help messages
                     responder.respond(sender, ChatColor.GOLD.toString() + ChatColor.BOLD.toString() + "> Event Editor");
                     responder.respond(sender, "/eventmanage edit name <event-name (use " + ChatColor.YELLOW + "<s>"
                             + ChatColor.AQUA + " to add a space)>");
@@ -106,6 +116,7 @@ public class Command_eventmanage implements CommandExecutor, TabCompleter {
     }
 
     private void showHelp(CommandSender sender) {
+        // Sends a help menu back to the sender
         responder.respond(sender, ChatColor.GOLD.toString() + ChatColor.BOLD.toString() + "> Commands Help");
         responder.respond(sender, "/eventmanage details - Tells you the current event's information/details");
         responder.respond(sender, "/eventmanage start - Starts the currently-configured event");
@@ -116,6 +127,7 @@ public class Command_eventmanage implements CommandExecutor, TabCompleter {
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        // Read the code, idiot
         List<String> suggestions = new ArrayList<>();
 
         if (!(sender instanceof Player)) {
