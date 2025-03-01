@@ -2,10 +2,6 @@
 
 EventManage is a PaperMC plugin designed to simplify event management on your Minecraft server. With a robust command system, administrators can easily configure events using the `/eventmanage` command (with sub-commands like `details`, `start`, `stop`, and `edit`), while players can join events with the `/joinevent` command.
 
-**NOTICE:** For now, only one event can be stored at a time, and server restarts will **wipe the stored event** from memory. Later, the plugin will allow you to load event information from a file, and save it back to a file, which will allow for multiple events to be stored, and you wont have to re-type multiple commands to create an event.
-
-**NOTICE #2:** This plugin must run on a PaperMC server! Unless, of course, you're running a software which is a fork of [PaperMC](https://github.com/PaperMC/Paper). **SPIGOT WILL NOT WORK!!!**
-
 ## Key Features
 
 - **Boss Bar Display:** Shows the event name (and how to join) on a boss bar that alternates between red and blue every half-second while the event is active.
