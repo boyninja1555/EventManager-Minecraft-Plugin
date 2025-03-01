@@ -109,7 +109,7 @@ public class Event {
             dataFolder.mkdir();
         }
 
-        File eventsFolder = new File(dataFolder.getAbsolutePath());
+        File eventsFolder = new File(dataFolder.getAbsolutePath(), "events");
 
         if (!eventsFolder.exists()) {
             eventsFolder.mkdir();
@@ -170,7 +170,7 @@ public class Event {
             dataFolder.mkdir();
         }
 
-        File eventsFolder = new File(dataFolder.getAbsolutePath());
+        File eventsFolder = new File(dataFolder.getAbsolutePath(), "events");
 
         if (!eventsFolder.exists()) {
             eventsFolder.mkdir();
